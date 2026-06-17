@@ -68,6 +68,10 @@ public class ComplaintService {
 
         log.info("📝 Filing complaint for user: " + username + " with priority: " + priority);
         
+
+
+        // Log user activity
+
         try {
             User user = getCurrentUser();
             if (user != null) {
@@ -140,6 +144,10 @@ public class ComplaintService {
         
         Complaint updated = complaintRepository.save(complaint);
         
+
+
+        // Log user activity
+
         try {
             User admin = userRepository.findByEmail(currentUsername()).orElse(null);
             if (admin != null) {
@@ -173,6 +181,7 @@ public class ComplaintService {
         
         Complaint updated = complaintRepository.save(complaint);
         
+
         try {
             User admin = userRepository.findByEmail(currentUsername()).orElse(null);
             if (admin != null) {
@@ -195,6 +204,7 @@ public class ComplaintService {
             throw new AccessDeniedException("Only admins can delete complaints");
         }
         
+
         try {
             User admin = userRepository.findByEmail(currentUsername()).orElse(null);
             if (admin != null) {
