@@ -154,4 +154,8 @@ public class WebController {
     public String profile() {
         return "profile";
     }
+    @GetMapping("/audit-logs")
+public String auditLogs() {
+    return "audit-logs";
+}
 }
