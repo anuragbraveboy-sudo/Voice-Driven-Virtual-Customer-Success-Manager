@@ -22,6 +22,13 @@
     <link href="/css/ui.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/spinners.css">
 
+    <link rel="stylesheet" href="/css/print.css" media="print">
+    <link rel="stylesheet" href="/css/hover-effects.css">
+    <link rel="stylesheet" href="/css/toast-notifications.css">
+
+    <link rel="stylesheet" href="/css/hover-effects.css">
+
+
 
     <link rel="stylesheet" href="/css/print.css" media="print">
     <link rel="stylesheet" href="/css/hover-effects.css">
@@ -33,7 +40,6 @@
     <link rel="stylesheet" href="/css/hover-effects.css">
 
     <link rel="stylesheet" href="/css/toast-notifications.css">
-
 
 
     <link rel="stylesheet" href="/css/back-to-top.css">
@@ -65,6 +71,10 @@
 
     <link rel="stylesheet" href="/css/confirm-dialogs.css">
 
+    <link rel="stylesheet" href="/css/empty-states.css">
+
+
+
 
     <link rel="stylesheet" href="/css/empty-states.css">
 
@@ -79,6 +89,7 @@
     <meta property="og:title" content="VCSM - Virtual Customer Success Manager">
     <meta property="og:description" content="Voice-driven community support platform">
     <meta name="twitter:card" content="summary_large_image">
+
 
 
 </head>
@@ -194,8 +205,10 @@
                 </div>
                 <div class="card-body p-0">
 
+
                     <div th:if="${recentComplaints.empty}" class="text-center text-muted p-4">
                         No complaints yet. 🎯
+
 
                     <div th:if="${recentComplaints.empty}">
                         <div class="empty-state-small">
@@ -236,8 +249,10 @@
                 </div>
                 <div class="card-body p-0">
 
+
                     <div th:if="${recentCommands.empty}" class="text-center text-muted p-4">
                         No voice commands yet. Try speaking to the assistant above! 🎤
+
 
                     <div th:if="${recentCommands.empty}">
                         <div class="empty-state-small">
