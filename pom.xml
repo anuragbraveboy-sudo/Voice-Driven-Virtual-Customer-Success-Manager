@@ -60,6 +60,26 @@
     <version>2.3.1</version>
 </dependency>
 
+<!-- OpenNLP for NLP -->
+<dependency>
+    <groupId>org.apache.opennlp</groupId>
+    <artifactId>opennlp-tools</artifactId>
+    <version>2.3.0</version>
+</dependency>
+
+<!-- Kafka for event processing -->
+<dependency>
+    <groupId>org.springframework.kafka</groupId>
+    <artifactId>spring-kafka</artifactId>
+</dependency>
+
+<!-- MLflow for model tracking -->
+<dependency>
+    <groupId>org.mlflow</groupId>
+    <artifactId>mlflow-client</artifactId>
+    <version>2.9.0</version>
+</dependency>
+
 <!-- QR Code Generation -->
 <dependency>
     <groupId>com.google.zxing</groupId>
