@@ -223,10 +223,12 @@ public String liveDashboard() {
     return "live-dashboard";
 }
 
+
 @GetMapping("/translation")
 public String translation() {
     return "translation-ui";
 }
+
 
     @GetMapping("/analytics")
     public String analytics(Model model) {
