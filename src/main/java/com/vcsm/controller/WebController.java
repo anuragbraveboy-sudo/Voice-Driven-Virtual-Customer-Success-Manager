@@ -261,10 +261,12 @@ public String blockchainVerify() {
     return "blockchain-verify";
 }
 
+
 @GetMapping("/offline")
 public String offline() {
     return "offline";
 }
+
 
 @GetMapping("/twilio-demo")
 public String twilioDemo() {
