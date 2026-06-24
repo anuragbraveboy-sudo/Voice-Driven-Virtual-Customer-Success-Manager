@@ -1,6 +1,6 @@
 package com.vcsm.service;
 
-import com.bucket4j.Bucket;
+import io.github.bucket4j.Bucket;
 import com.vcsm.config.RateLimitConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
