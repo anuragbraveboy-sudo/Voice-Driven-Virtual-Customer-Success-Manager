@@ -220,23 +220,6 @@ public String twilioDemo() {
 
 
 
-    @GetMapping("/voice-analytics")
-    public String voiceAnalytics() {
-        return "voice-analytics";
-    }
-
-    @GetMapping("/profile")
-    public String profile() {
-        return "profile";
-
-    }
-    @GetMapping("/audit-logs")
-public String auditLogs() {
-    return "audit-logs";
-}
-
-
-
     @GetMapping("/interaction-history")
     public String interactionHistory(Model model) {
         try {
