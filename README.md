@@ -12,6 +12,22 @@ It enables users to:
 
 ---
 
+## Table of Contents
+
+- [🚀 Features](#-features)
+- [🎤 Example Voice Commands](#-example-voice-commands)
+- [🛠️ Tech Stack](#%EF%B8%8F-tech-stack)
+- [🏗️ Architecture](#%EF%B8%8F-architecture)
+- [▶️ Installation and Setup](#%EF%B8%8F-installation-and-setup)
+- [📁 Project Structure](#-project-structure)
+- [📸 Screenshots](#-screenshots)
+- [🚀 Deployment](#-deployment)
+- [🛠️ Troubleshooting](#%EF%B8%8F-troubleshooting)
+- [🤝 Contributing](#-contributing)
+- [🚀 Future Enhancements](#-future-enhancements)
+
+---
+
 ## 🚀 Features
 
 - **🎤 Voice Assistant** — Web Speech API + Omnidim.io integration for natural language commands
