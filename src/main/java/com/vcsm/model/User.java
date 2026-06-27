@@ -49,6 +49,9 @@ public class User {
     
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @Column(name = "dissatisfaction_score")
+    private double dissatisfactionScore = 0.0;
     
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Complaint> complaints = new ArrayList<>();
@@ -101,4 +104,7 @@ public class User {
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     public void setComplaints(List<Complaint> complaints) { this.complaints = complaints; }
     public void setVoicePrint(VoicePrint voicePrint) { this.voicePrint = voicePrint; }
+
+    public double getDissatisfactionScore() { return dissatisfactionScore; }
+    public void setDissatisfactionScore(double dissatisfactionScore) { this.dissatisfactionScore = dissatisfactionScore; }
 }
