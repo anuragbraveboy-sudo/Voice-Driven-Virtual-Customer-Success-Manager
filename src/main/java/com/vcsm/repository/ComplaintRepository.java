@@ -7,22 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
-import org.springframework.data.jpa.domain.Specification;
-/*
-Page<Complaint> findAll(Specification<Complaint> spec, Pageable pageable);
-
-Page<Complaint> findAll(Pageable pageable);
-Page<Complaint> findByResidentUsername(String username, Pageable pageable);
-*/
-
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 @Repository
 public interface ComplaintRepository extends JpaRepository<Complaint, Long>, JpaSpecificationExecutor<Complaint> {
@@ -41,7 +29,6 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Long>, Jpa
 
     Optional<Complaint> findByIdAndResidentUsername(Long id, String residentUsername);
 
-
     List<Complaint> findByCategory(Complaint.ComplaintCategory category);
 
     List<Complaint> findByApartmentNumber(String apartmentNumber);
@@ -58,8 +45,8 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Long>, Jpa
     List<Object[]> countByPriority();
 
     @Query("SELECT c.id FROM Complaint c")
-List<Long> findAllIds();
+    List<Long> findAllIds();
 
-@Query("SELECT c.id FROM Complaint c WHERE c.status = :status")
-List<Long> findIdsByStatus(@Param("status") Complaint.ComplaintStatus status);
+    @Query("SELECT c.id FROM Complaint c WHERE c.status = :status")
+    List<Long> findIdsByStatus(@Param("status") Complaint.ComplaintStatus status);
 }

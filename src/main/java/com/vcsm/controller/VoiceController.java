@@ -13,7 +13,9 @@ import org.springframework.http.HttpStatus;
 import com.vcsm.dto.ErrorResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import com.vcsm.dto.ErrorResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +50,20 @@ public class VoiceController {
         if (transcript == null || transcript.isBlank()) {
             return ResponseEntity.badRequest().body(Map.of("error", "Transcript required", "success", false));
         }
+        
+        // Authentication check FIRST
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || auth.getName() == null) {
+            Map<String, Object> error = new HashMap<>();
+            error.put("status", 401);
+            error.put("error", "Unauthorized");
+            error.put("message", "Authentication required");
+            error.put("success", false);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+        }
+        
+        User user = userRepository.findByEmail(auth.getName())
+            .orElseThrow(() -> new IllegalArgumentException("User not found: " + auth.getName()));
         
         // Detect language
         String language = languageDetectionService.detectLanguage(transcript);
@@ -118,15 +134,6 @@ public class VoiceController {
         }
         
         // Analyze sentiment dynamically from authenticated user
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth == null || auth.getName() == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .body(new ErrorResponse(401, "Unauthorized", "Authentication required"));
-        }
-
-        User user = userRepository.findByEmail(auth.getName())
-            .orElseThrow(() -> new IllegalArgumentException("User not found: " + auth.getName()));
-
         Long userId = user.getId();
         sentimentService.analyzeAndProcess(userId, transcript);
         

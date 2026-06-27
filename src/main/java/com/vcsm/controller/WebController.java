@@ -3,25 +3,14 @@ package com.vcsm.controller;
 import com.vcsm.model.Complaint;
 import com.vcsm.service.ComplaintService;
 import com.vcsm.service.EventService;
-import com.vcsm.service.OmnidimService;
 import com.vcsm.service.InteractionService;
+import com.vcsm.service.OmnidimService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
-import org.springframework.data.domain.PageRequest;
-
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,6 +42,10 @@ public class WebController {
         return "landing";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 
     @GetMapping("/chatbot")
     public String chatbot() {
@@ -69,13 +62,10 @@ public class WebController {
         return "profile";
     }
 
-
     @GetMapping("/onboarding")
     public String onboarding() {
         return "onboarding";
     }
-
-
 
     @GetMapping("/voice-analytics")
     public String voiceAnalytics() {
@@ -87,7 +77,10 @@ public class WebController {
         return "audit-logs";
     }
 
-
+    @GetMapping("/ivr-builder")
+    public String ivrBuilder() {
+        return "ivr-builder";
+    }
 
     @GetMapping("/")
     public String dashboard(Model model) {
@@ -188,6 +181,21 @@ public class WebController {
         return "events";
     }
 
+    @GetMapping("/voice-cloning")
+    public String voiceCloning() {
+       return "voice-cloning-ui";
+    }
+
+    @GetMapping("/live-dashboard")
+    public String liveDashboard() {
+        return "live-dashboard";
+    }
+
+    @GetMapping("/translation")
+    public String translation() {
+        return "translation-ui";
+    }
+
     @GetMapping("/analytics")
     public String analytics(Model model) {
 
@@ -214,6 +222,21 @@ public class WebController {
         return "analytics";
     }
 
+    @GetMapping("/blockchain-verify")
+    public String blockchainVerify() {
+        return "blockchain-verify";
+    }
+
+    @GetMapping("/offline")
+    public String offline() {
+        return "offline";
+    }
+
+    @GetMapping("/twilio-demo")
+    public String twilioDemo() {
+        return "twilio-demo";
+    }
+
     @GetMapping("/interaction-history")
     public String interactionHistory(Model model) {
         try {
@@ -233,6 +256,6 @@ public class WebController {
             model.addAttribute("interactionStats", new HashMap<>());
         }
         return "interaction-history";
-
     }
+
 }
